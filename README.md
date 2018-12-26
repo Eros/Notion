@@ -26,3 +26,8 @@ As well as the config template which is in the root directory of the bot:
 ```
 
 The bot runs of Insult Generator API from https://rapidapi.com/Lakerolmaker/api/insult-generator you will need to create an account and use your own token.
+
+# Disclaimer
+
+The bot is meant to be for fun. If you find yourself hurt, offended, upset or anything from what it says then that aint my problem. Also I know my friends will view this
+code and likely say its shit. I KNOW I GOT BORED OKAY.
