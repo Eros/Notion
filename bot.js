@@ -7,19 +7,24 @@ const fs = require('fs');
 
 bot.login(config.discord_token);
 
+const prefix = config.prefix;
+
 bot.on('message', message => {
-    if(message.content.startsWith(config.prefix + 'insult')){
+
+    let member = message.mentions.members.first();
+
+    if(message.content == prefix + 'insult' + ' ' + member){
         unirest.get("https://lakerolmaker-insult-generator-v1.p.rapidapi.com/?mode=random")
         .header("Authorization", "FREE")
         .header("X-RapidAPI-Key", config.rapid_api_token)
         .end(function (result) {
-        message.reply(result.raw_body);
+        message.channel.send(member + result.raw_body);
 });
     }
 });
 
 bot.on('ready', async => {
     console.log('\nInsultBot starting up...');
-    bot.user.setActivity('&insult @name', {type: 'LISTENING'});
+    bot.user.setActivity('&insult @name', {type: 'PLAYING'});
     console.log('\nBot has started!\n');
 });
