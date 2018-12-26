@@ -7,22 +7,15 @@ const fs = require('fs');
 
 bot.login(config.discord_token);
 
-
-fs.readdir('./commands/', (err, files) => {
-    if(err)
-        console.log(err);
-    let jsFiles = files.filter(f => f.split('.').pop() === 'js');
-
-    if(jsFiles.length <= 0) {
-        console.log('Unable to load commands');
-        return;
+bot.on('message', message => {
+    if(message.content.startsWith(config.prefix + 'insult')){
+        unirest.get("https://lakerolmaker-insult-generator-v1.p.rapidapi.com/?mode=random")
+        .header("Authorization", "FREE")
+        .header("X-RapidAPI-Key", config.rapid_api_token)
+        .end(function (result) {
+        message.reply(result.raw_body);
+});
     }
-
-    jsFiles.forEach((f, i) => {
-        let props = require(`./commands/${f}`);
-        console.log(`Loaded ${f} command`);
-        bot.commands.set(props.help.name, props);
-    });
 });
 
 bot.on('ready', async => {
