@@ -1,7 +1,7 @@
 
-var config = require('./config.json');
-var unirest = require('unirest');
-var Discord = require('discord.js');
+const config = require('./config.json');
+const unirest = require('unirest');
+const Discord = require('discord.js');
 const bot = new Discord.Client();
 const fs = require('fs');
 
