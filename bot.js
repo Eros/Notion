@@ -1,9 +1,8 @@
 
-const config = require('./config.json');
+var config = require('./config.json');
 const unirest = require('unirest');
 const Discord = require('discord.js');
 const bot = new Discord.Client();
-const fs = require('fs');
 
 bot.login(config.discord_token);
 
