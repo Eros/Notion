@@ -20,6 +20,19 @@ bot.on('message', message => {
         message.channel.send(member + result.raw_body);
 });
     }
+
+    if(message.content == prefix + 'sys') {
+        var message = new Discord.RichEmbed().setColor('#7200ff')
+                .setTitle('Server statistics')
+                .addField('Uptime: ', process.uptime().toFixed(4))
+                .addField('RAM usage: ', `${((process.memoryUsage().heapUsed / 1024) / 1024).toFixed(2)} MB`, true)
+                .addField('Websocket:', `${process.platform} (${process.arch})`, true)
+                .addField('Host: ', (require('os').uptime() + ''))
+                .addField('Ping: ', `${bot.ping}`)
+                .addField('DiscordJS Version: ', require('discord.js').version)
+                .addField('Active server count: ', `${bot.guilds.size}`);
+                message.channel.send(message);
+    }
 });
 
 bot.on('ready', async => {
