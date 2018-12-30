@@ -22,16 +22,48 @@ bot.on('message', message => {
     }
 
     if(message.content == prefix + 'sys') {
-        var message = new Discord.RichEmbed().setColor('#7200ff')
-                .setTitle('Server statistics')
-                .addField('Uptime: ', process.uptime().toFixed(4))
-                .addField('RAM usage: ', `${((process.memoryUsage().heapUsed / 1024) / 1024).toFixed(2)} MB`, true)
-                .addField('Websocket:', `${process.platform} (${process.arch})`, true)
-                .addField('Host: ', (require('os').uptime() + ''))
-                .addField('Ping: ', `${bot.ping}`)
-                .addField('DiscordJS Version: ', require('discord.js').version)
-                .addField('Active server count: ', `${bot.guilds.size}`);
-                message.channel.send(message);
+        message.channel.send({embed: {
+            color: 3447003,
+            author: {
+                name: bot.user.username,
+                icon_url: bot.user.avatarURL
+            },
+            title: 'System stats',
+            description: 'Statistics of the Bot and the AWS server',
+            fields: [{
+                name: 'Uptime',
+                value: process.uptime().toFixed(4)
+            },
+            {
+                name: 'RAM usage ',
+                value: `${((process.memoryUsage().heapUsed / 1024) / 1024).toFixed(2)} MB`
+            },
+            {
+                name: 'Websocket',
+                value: `${process.platform} (${process.arch}) `
+            },
+            {
+                name: 'Host',
+                value: `AWS Ohio Server (Ubuntu)`
+            },
+            {
+                name: 'Ping',
+                value: `${bot.ping} `
+            },
+            {
+                name: 'DiscordJS version',
+                value: `${require('discord.js').version} `
+            },
+            {
+                name: 'Server count: ',
+                value: `${bot.guilds.size} `
+            }], 
+            timestamp: new Date(),
+            footer: {
+                icon_url: bot.user.avatarURL,
+                text: ''
+            }
+        }});
     }
 });
 
