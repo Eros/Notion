@@ -5,6 +5,7 @@ const Discord = require('discord.js');
 const bot = new Discord.Client();
 const fs = require('fs');
 
+bot.login(config.discord_token);
 
 fs.readdir('./commands/', (err, files) => {
     if(err)
@@ -23,6 +24,26 @@ fs.readdir('./commands/', (err, files) => {
     });
 });
 
+bot.on('message', message => {
+
+
+    let messages = message;
+    
+    if(message.author.bot)
+        return;
+    if(message.channel.type === 'dm')
+        return;
+    
+    let prefix = config.prefix;
+    let messageArray = message.content.split(' ');
+    let cmd = messageArray[0];
+    let args = messageArray.slice(1);
+
+    let commandFile = bot.commands.get(cmd.slice(prefix.length));
+
+    if(commandFile)
+        commandFile.run(bot, message, args);
+});
 
 
 //bot.on('message', message => {
