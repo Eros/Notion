@@ -12,7 +12,7 @@ bot.on('message', message => {
 
     let member = message.mentions.members.first();
 
-    if(message.content == prefix + 'insult' + ' ' + member){
+    if(message.content.startsWith(prefix + 'insult' + ' ' + member)){
         unirest.get("https://lakerolmaker-insult-generator-v1.p.rapidapi.com/?mode=random")
         .header("Authorization", "FREE")
         .header("X-RapidAPI-Key", config.rapid_api_token)
