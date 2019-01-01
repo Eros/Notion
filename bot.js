@@ -1,10 +1,11 @@
-
 var config = require('./config.json');
 const Discord = require('discord.js');
 const bot = new Discord.Client();
 const fs = require('fs');
 
 bot.login(config.discord_token);
+
+bot.commands = new Discord.Collection();
 
 fs.readdir('./commands/', (err, files) => {
     if(err)
