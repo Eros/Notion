@@ -18,10 +18,6 @@ module.exports.run = (bot, message, args) => {
         {
             name: 'sys',
             value: 'Usage: &sys \n Prints information on the bot and server'
-        },
-        {
-            name: 'catto',
-            value: 'Usage: &catto \n Displays a random cat picture'
         }],
         footer: {
             icon_url: bot.user.avatarURL,
