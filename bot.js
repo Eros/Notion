@@ -17,7 +17,6 @@ fs.readdir('./commands/', (err, files) => {
         return;
     }
 
-<<<<<<< HEAD
     js.forEach((f, i) => {
         let props = require(`./commands/${f}`);
         console.log(`Loaded command: ${f}`);
@@ -26,7 +25,6 @@ fs.readdir('./commands/', (err, files) => {
 });
 
 bot.on('message', message => {
-
 
     let messages = message;
     
@@ -44,68 +42,7 @@ bot.on('message', message => {
 
     if(commandFile)
         commandFile.run(bot, message, args);
-=======
-    if(message.content.startsWith(prefix + 'insult' + ' ' + member)){
-        unirest.get("https://lakerolmaker-insult-generator-v1.p.rapidapi.com/?mode=random")
-        .header("Authorization", "FREE")
-        .header("X-RapidAPI-Key", config.rapid_api_token)
-        .end(function (result) {
-        message.channel.send(member + result.raw_body);
 });
-    }
-
-    if(message.content == prefix + 'sys') {
-        message.channel.send({embed: {
-            color: 3447003,
-            author: {
-                name: bot.user.username,
-                icon_url: bot.user.avatarURL
-            },
-            title: 'System stats',
-            description: 'Statistics of the Bot and the AWS server',
-            fields: [{
-                name: 'Uptime',
-                value: process.uptime().toFixed(4)
-            },
-            {
-                name: 'RAM usage ',
-                value: `${((process.memoryUsage().heapUsed / 1024) / 1024).toFixed(2)} MB`
-            },
-            {
-                name: 'Websocket',
-                value: `${process.platform} (${process.arch}) `
-            },
-            {
-                name: 'Host',
-                value: `AWS Ohio Server (Ubuntu)`
-            },
-            {
-                name: 'Ping',
-                value: `${bot.ping} `
-            },
-            {
-                name: 'DiscordJS version',
-                value: `${require('discord.js').version} `
-            },
-            {
-                name: 'Server count: ',
-                value: `${bot.guilds.size} `
-            }], 
-            timestamp: new Date(),
-            footer: {
-                icon_url: bot.user.avatarURL,
-                text: ''
-            }
-        }});
-    }
->>>>>>> master
-});
-
-
-//bot.on('message', message => {
-//
-
-//});
 
 bot.on('ready', async => {
     console.log('\nInsultBot starting up...');
