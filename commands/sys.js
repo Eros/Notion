@@ -9,7 +9,7 @@ module.exports.run = (bot, message, args) => {
         description: 'Statistics of the Bot and the AWS server',
         fields: [{
             name: 'Uptime',
-            value: process.uptime().toFixed(4)
+            value: 'Client: ' + (process.uptime() + '').toHHMMSS() + '\n Host: ' + require('os'.uptime() + '').toHHMMSS()
         },
         {
             name: 'RAM usage ',
