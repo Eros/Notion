@@ -17,7 +17,7 @@ class Queue {
         return this.items.shift();
     }
 
-    getFront(){
+   static getFront(){
         if(this.isEmpty())
             return "Queue is empty";
         return this.items[0];
