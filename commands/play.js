@@ -1,8 +1,8 @@
 const yt = require('ytdl-core');
-
+const q = require('/commands/music/queue.js')
 module.exports.run = (bot, message, args) => {
 
-    play(Queue.getFront());
+    play(q.getFront());
     
     function play(song) {
         if(song === undefined)
