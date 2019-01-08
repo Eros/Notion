@@ -9,7 +9,7 @@ module.exports.run = (bot, message, args) => {
         description: 'Statistics of the Bot and the AWS server',
         fields: [{
             name: 'Uptime',
-            value: 'Client: ' + (process.uptime() + '').toHHMMSS() + '\n Host: ' + require('os'.uptime() + '').toHHMMSS()
+            value: convertMillis(process.uptime().toFixed(2))
         },
         {
             name: 'RAM usage ',
@@ -44,4 +44,13 @@ module.exports.run = (bot, message, args) => {
 
 module.exports.help = {
     name: 'sys'
+}
+
+function convertMillis(ms) {
+    var seconds = ms / 1000;
+    var hours = parseInt(seconds / 3600);
+    seconds = seconds % 3600;
+    var minutes = parseInt(seconds / 60);
+    seconds = seconds % 60;
+    return hours + ' Hours : ' + minutes + ' Minutes : ' + seconds + ' Seconds';
 }
