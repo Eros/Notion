@@ -2,7 +2,7 @@ module.exports.run = (bot, message, args) => {
     message.channel.send({embed: {
         color: 3447003,
         author: {
-            name: bot.user.username,
+            name: ' ',
             icon_url: bot.user.avatarURL
         },
         title: 'System stats',
