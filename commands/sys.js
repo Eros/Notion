@@ -9,7 +9,7 @@ module.exports.run = (bot, message, args) => {
         description: 'Statistics of the Bot and the AWS server',
         fields: [{
             name: 'Uptime',
-            value: process.uptime().convertTime()
+            value: (process.uptime() + '').convertTime()
         },
         {
             name: 'RAM usage ',
@@ -49,7 +49,7 @@ module.exports.help = {
 String.prototype.convertTime = function() {
     let sec = parseInt(this, 10);
     let remainder = sec % 86400;
-    let days = Math.floor(sec_num / 86400);
+    let days = Math.floor(sec / 86400);
     let hours = Math.floor(remainder / 3600);
     let minutes = Math.floor((remainder / 60) - (hours * 60));
     let seconds = Math.floor((remainder % 3600) - (minutes * 60));
