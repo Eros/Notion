@@ -9,7 +9,7 @@ module.exports.run = (bot, message, args) => {
         description: 'Statistics of the Bot and the AWS server',
         fields: [{
             name: 'Uptime',
-            value: convertMillis(process.uptime().toFixed(2))
+            value: process.uptime().convertTime();
         },
         {
             name: 'RAM usage ',
@@ -46,11 +46,21 @@ module.exports.help = {
     name: 'sys'
 }
 
-function convertMillis(ms) {
-    var seconds = ms / 1000;
-    var hours = parseInt(seconds / 3600);
-    seconds = seconds % 3600;
-    var minutes = parseInt(seconds / 60);
-    seconds = seconds % 60;
-    return hours + ' Hours : ' + minutes + ' Minutes : ' + seconds + ' Seconds';
-}
+String.prototype.convertTime = function() {
+    let sec = parseInt(this, 10);
+    let remainder = sec % 86400;
+    let days = Math.floor(sec_num / 86400);
+    let hours = Math.floor(remainder / 3600);
+    let minutes = Math.floor((remainder / 60) - (hours * 60));
+    let seconds = Math.floor((remainder % 3600) - (minutes * 60));
+
+    if (days > 0) {
+        return days + "d " + hours + "h " + minutes + "m " + seconds + "s";
+    } else if (hours > 0) {
+        return hours + "h " + minutes + "m " + seconds + "s";
+    } else if (minutes > 0) {
+        return minutes + "m " + seconds + "s";
+    } else {
+        return seconds + "s";
+    }
+};
