@@ -3,7 +3,7 @@ const Discord = require('discord.js');
 const bot = new Discord.Client();
 const fs = require('fs');
 const MongoClient = require('mongodb').MongoClient;
-const db = undefined;
+var db = undefined;
 const dbUtils = require('./mongoUtils');
 
 bot.login(config.discord_token);
