@@ -4,6 +4,7 @@ const bot = new Discord.Client();
 const fs = require('fs');
 const MongoClient = require('mognodb').MongoClient;
 const db = undefined;
+const dbUtils = require('./mongoUtils');
 
 bot.login(config.discord_token);
 
@@ -43,7 +44,10 @@ bot.on('message', message => {
     let commandFile = bot.commands.get(cmd.slice(prefix.length));
 
     if(commandFile)
-        commandFile.run(bot, message, args);
+        if(chatPrecheck(message))
+            message.reply('You are globally banned, you cannot run this command!');
+        else 
+            commandFile.run(bot, message, args);
 });
 
 bot.on('ready', async => {
@@ -68,3 +72,13 @@ bot.on('guildCreate', guild => {
     console.info('Joined new server > ' + guild.name);
     //some mongo stuff will go here eventually
 });
+
+function chatPrecheck(message) {
+    if(dbUtils.utils.find({
+        id: message.author.id,
+        global_banned: true
+    }, {
+        fields: ['username'],
+        limit: 1
+    }));
+}
