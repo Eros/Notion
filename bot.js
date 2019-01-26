@@ -1,8 +1,9 @@
-var config = require('./config.json');
+const config = require('./config.json');
 const Discord = require('discord.js');
 const bot = new Discord.Client();
 const fs = require('fs');
 const MongoClient = require('mognodb').MongoClient;
+const db = undefined;
 
 bot.login(config.discord_token);
 
@@ -49,4 +50,15 @@ bot.on('ready', async => {
     console.log('\n [+] InsultBot starting up...');
     bot.user.setActivity('&insult @name', {type: 'PLAYING'});
     console.log('\n [+] Bot has started!\n');
+
+    console.log('Setting up MongoDB...');
+    MongoClient.connect(config.mongo_url, function(err, client) {
+        if(err) {
+            throw err;
+            console.log('Could not connect to Mongo, error thrown!');
+        } else {
+            db = client.db('InsultBot');
+            console.log('Logged into MongoDB');
+        }
+    });
 });
