@@ -2,6 +2,7 @@ var config = require('./config.json');
 const Discord = require('discord.js');
 const bot = new Discord.Client();
 const fs = require('fs');
+const MongoClient = require('mognodb').MongoClient;
 
 bot.login(config.discord_token);
 
