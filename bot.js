@@ -3,8 +3,10 @@ const Discord = require('discord.js');
 const bot = new Discord.Client();
 const fs = require('fs');
 const MongoClient = require('mongodb').MongoClient;
-var db = undefined;
+const collection_name = 'Globally_Banned';
 const dbUtils = require('./mongoUtils');
+
+var db = undefined;
 
 bot.login(config.discord_token);
 
@@ -44,16 +46,19 @@ bot.on('message', message => {
     let commandFile = bot.commands.get(cmd.slice(prefix.length));
 
     if(commandFile)
-        if(chatPrecheck(message))
-            message.reply('You are globally banned, you cannot run this command!');
-        else 
-            commandFile.run(bot, message, args);
+        //if(chatPrecheck(message))
+        //    message.reply('You are globally banned, you cannot run this command!');
+        //else 
+         commandFile.run(bot, message, args);
 });
 
 bot.on('ready', async => {
     console.log('\n [+] InsultBot starting up...');
     bot.user.setActivity('&insult @name', {type: 'PLAYING'});
     console.log('\n [+] Bot has started!\n');
+
+    //this is just for debug and testing
+    findInDocument();
 
     //mongo setup and handling
     console.log('Setting up MongoDB...');
@@ -73,12 +78,7 @@ bot.on('guildCreate', guild => {
     //some mongo stuff will go here eventually
 });
 
-function chatPrecheck(message) {
-    if(dbUtils.utils.find({
-        id: message.author.id,
-        global_banned: true
-    }, {
-        fields: ['username'],
-        limit: 1
-    }));
+function findInDocument() {
+    const cursor = db.collection(collection_name).find({test_string});
+    console.log(cursor);
 }
