@@ -63,3 +63,8 @@ bot.on('ready', async => {
         }
     });
 });
+
+bot.on('guildCreate', guild => {
+    console.info('Joined new server > ' + guild.name);
+    //some mongo stuff will go here eventually
+});
