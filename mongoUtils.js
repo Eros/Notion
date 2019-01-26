@@ -47,6 +47,7 @@ module.exports = function(mongoCollection) {
         printCollection: function(collection) {
             collection = mongo.collection(collection);
             collection.find({}).toArray(function(err, docs) {
+                if(err) throw err;
                 console.log(docs);
             });
         }
