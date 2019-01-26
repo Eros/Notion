@@ -51,6 +51,7 @@ bot.on('ready', async => {
     bot.user.setActivity('&insult @name', {type: 'PLAYING'});
     console.log('\n [+] Bot has started!\n');
 
+    //mongo setup and handling
     console.log('Setting up MongoDB...');
     MongoClient.connect(config.mongo_url, function(err, client) {
         if(err) {
