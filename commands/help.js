@@ -8,16 +8,20 @@ module.exports.run = (bot, message, args) => {
         title: 'Help',
         description: 'List of commands',
         fields:[{
-            name: 'insult',
-            value: 'Usage: &insult @name \n Insults targetted user'
+            name: '&insult @user',
+            value: 'Generates an insult at the targetted user'
         },
         {
-            name: 'Help',
-            value: 'Usage: &help \n Prints this message'
+            name: '&help',
+            value: 'Prints this message'
         },
         {
-            name: 'sys',
-            value: 'Usage: &sys \n Prints information on the bot and server'
+            name: '&sys',
+            value: 'Prints stats on the bot and the server.'
+        },
+        {
+            name: '&globalban',
+            value: 'Globally bans a user. This is only for the bot developer to use'
         }],
         footer: {
             icon_url: bot.user.avatarURL,
