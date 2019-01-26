@@ -1,4 +1,4 @@
-const mongo, {ObjectID} = require('mongodb');
+const {ObjectID, mongo} = require('mongodb');
 
 module.exports = function(mongoCollection) {
     
@@ -48,7 +48,7 @@ module.exports = function(mongoCollection) {
             collection = mongo.collection(collection);
             collection.find({}).toArray(function(err, docs) {
                 if(err) throw err;
-                
+
                 console.log(docs);
             });
         }
