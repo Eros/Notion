@@ -49,3 +49,20 @@ bot.on('ready', async => {
     bot.user.setActivity('&insult @name', {type: 'PLAYING'});
     console.log('\nBot has started!\n');
 });
+
+var child = new (forever.monitor)('bot.js', {
+   max: 3,
+   silent: false,
+   args:[],
+    uid: 'insultbot-aws-ohio-S1',
+    killTree: false,
+    minUpTime: 10000,
+    spinSleepTime: 10,
+    watch: true,
+});
+
+child.on('exit', function() {
+    console.log('InsultBot has exited after 3 restarts...');
+});
+
+child.start();
