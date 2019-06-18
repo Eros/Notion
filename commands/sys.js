@@ -1,52 +1,58 @@
+const config = require('../config.json');
+
 module.exports.run = (bot, message, args) => {
-    message.channel.send({embed: {
-        color: 3447003,
-        author: {
-            name: ' ',
-            icon_url: bot.user.avatarURL
-        },
-        title: 'System stats',
-        description: 'Statistics of the Bot and the AWS server',
-        fields: [{
-            name: 'Uptime',
-            value: (process.uptime() + '').convertTime()
-        },
-        {
-            name: 'RAM usage ',
-            value: `${((process.memoryUsage().heapUsed / 1024) / 1024).toFixed(2)} MB`
-        },
-        {
-            name: 'Websocket',
-            value: `${process.platform} (${process.arch}) `
-        },
-        {
-            name: 'Host',
-            value: `AWS Ohio Server (Ubuntu)`
-        },
-        {
-            name: 'Ping',
-            value: `${bot.ping} `
-        },
-        {
-            name: 'DiscordJS version',
-            value: `${require('discord.js').version} `
-        },
-        {
-            name: 'Server count: ',
-            value: `${bot.guilds.size} `
-        }],
-        footer: {
-            icon_url: bot.user.avatarURL,
-            text: 'Developed by https://twitter.com/RapidTheNerd'
-        }
-    }});
+    if (message.content.startsWith(config.prefix)) {
+        message.channel.send({
+            embed: {
+                color: 3447003,
+                author: {
+                    name: ' ',
+                    icon_url: bot.user.avatarURL
+                },
+                title: 'System stats',
+                description: 'Statistics of the Bot and the AWS server',
+                fields: [{
+                    name: 'Uptime',
+                    value: (process.uptime() + '').convertTime()
+                },
+                {
+                    name: 'RAM usage ',
+                    value: `${((process.memoryUsage().heapUsed / 1024) / 1024).toFixed(2)} MB`
+                },
+                {
+                    name: 'Websocket',
+                    value: `${process.platform} (${process.arch}) `
+                },
+                {
+                    name: 'Host',
+                    value: `AWS Ohio Server (Ubuntu)`
+                },
+                {
+                    name: 'Ping',
+                    value: `${bot.ping} `
+                },
+                {
+                    name: 'DiscordJS version',
+                    value: `${require('discord.js').version} `
+                },
+                {
+                    name: 'Server count: ',
+                    value: `${bot.guilds.size} `
+                }],
+                footer: {
+                    icon_url: bot.user.avatarURL,
+                    text: 'Developed by https://twitter.com/RapidTheNerd'
+                }
+            }
+        });
+    }
 }
 
 module.exports.help = {
     name: 'sys'
 }
 
-String.prototype.convertTime = function() {
+String.prototype.convertTime = function () {
     let sec = parseInt(this, 10);
     let remainder = sec % 86400;
     let days = Math.floor(sec / 86400);

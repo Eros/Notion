@@ -8,11 +8,11 @@ bot.login(config.discord_token);
 bot.commands = new Discord.Collection();
 
 fs.readdir('./commands/', (err, files) => {
-    if(err)
+    if (err)
         console.log('Error reading commands: \n' + err);
 
     let js = files.filter(f => f.split('.').pop() === 'js');
-    if(js.length <= 0) {
+    if (js.length <= 0) {
         console.log('Unable to load commands');
         return;
     }
@@ -26,13 +26,11 @@ fs.readdir('./commands/', (err, files) => {
 
 bot.on('message', message => {
 
-    let messages = message;
-    
-    if(message.author.bot)
+    if (message.author.bot)
         return;
-    if(message.channel.type === 'dm')
+    if (message.channel.type === 'dm')
         return;
-    
+
     let prefix = config.prefix;
     let messageArray = message.content.split(' ');
     let cmd = messageArray[0];
@@ -40,29 +38,12 @@ bot.on('message', message => {
 
     let commandFile = bot.commands.get(cmd.slice(prefix.length));
 
-    if(commandFile)
+    if (commandFile)
         commandFile.run(bot, message, args);
 });
 
 bot.on('ready', async => {
     console.log('\nInsultBot starting up...');
-    bot.user.setActivity('&insult @name', {type: 'PLAYING'});
+    bot.user.setActivity('&insult @name', { type: 'PLAYING' });
     console.log('\nBot has started!\n');
 });
-
-var child = new (forever.monitor)('bot.js', {
-   max: 3,
-   silent: false,
-   args:[],
-    uid: 'insultbot-aws-ohio-S1',
-    killTree: false,
-    minUpTime: 10000,
-    spinSleepTime: 10,
-    watch: true,
-});
-
-child.on('exit', function() {
-    console.log('InsultBot has exited after 3 restarts...');
-});
-
-child.start();
