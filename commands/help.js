@@ -36,7 +36,7 @@ module.exports.run = (bot, message, args) => {
         //     });
         // }
 
-        const embed = new Discord.RichEmbded();
+        const embed = new Discord.RichEmbed();
         embed.setTitle('InsultBot commands')
             .setAuthor('Developed by https://twitter.com/RapidTheNerd')
             .setColor(0x00AE86)
@@ -44,7 +44,7 @@ module.exports.run = (bot, message, args) => {
             .addField('» &insult @name', 'Generates an insult the target user', true)
             .addField('» &sys', 'Provides stats on the bot and AWS server')
             .addField('» &cat', 'Just incase you piss someone off this will put a cat in chat');
-        message.channel.send({ embed });
+        message.channel.send(embed);
     }
 }
 
