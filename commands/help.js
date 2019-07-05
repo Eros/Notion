@@ -8,8 +8,8 @@ module.exports.run = (bot, message, args) => {
         embed.setTitle('InsultBot commands')
             .setAuthor('')
             .setColor(0x00AE86)
-            .addField('» &help', 'Runs this command', true)
-            .addField('» &insult @name', 'Generates an insult the target user', true)
+            .addField('» &help', 'Runs this command')
+            .addField('» &insult @name', 'Generates an insult the target user')
             .addField('» &sys', 'Provides stats on the bot and AWS server')
             .addField('» &cat', 'Just incase you piss someone off this will put a cat in chat')
             .setFooter('Developed by https://twitter.com/RapidTheNerd');
