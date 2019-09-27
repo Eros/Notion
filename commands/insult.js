@@ -5,18 +5,14 @@ module.exports.run = (bot, message, args) => {
     if (message.content.startsWith(config.prefix)) {
         let member = message.mentions.members.first();
 
-        unirest.get("https://lakerolmaker-insult-generator-v1.p.rapidapi.com/?mode=random")
-            .header("Authorization", "FREE")
-            .header("X-RapidAPI-Key", config.rapid_api_token)
-            .end(function (result) {
-                var insult = result.raw_body.toLowerCase();
-
-                if (member == '' || member == null)
-                    message.reply('You noob, you need to tag someone!');
-                else {
-                    message.channel.send(member + ' ' + insult);
-                }
-            });
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.onreadystatechange = function() {
+            if(xmlHttp.readyState == 4 && xmlHttp.status == 200)
+                callback(xmlHttp.responseText);
+        }
+       var response = xmlHttp.open("GET", "https://insult.mattbas.org/api/insult", true);
+       response.send();
+       message.channel.send(response);
     }
 }
 
