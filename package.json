@@ -9,7 +9,10 @@
     "mongodb": "^3.1.13",
     "request": "^2.88.0",
     "unirest": "^0.5.1",
-    "xmlhttprequest": "^1.8.0"
+    "xmlhttprequest": "^1.8.0",
+    "cryptiles": ">=4.1.2",
+    "mime": ">=1.4.1",
+    "hoek": ">=4.2.1"
   },
   "devDependencies": {
     "discord.js": "^11.5.1",
