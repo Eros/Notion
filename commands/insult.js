@@ -1,18 +1,26 @@
-const unirest = require('unirest');
 const config = require('../config.json');
+const https = require('https');
 
 module.exports.run = (bot, message, args) => {
     if (message.content.startsWith(config.prefix)) {
         let member = message.mentions.members.first();
 
-        var xmlHttp = new XMLHttpRequest();
-        xmlHttp.onreadystatechange = function() {
-            if(xmlHttp.readyState == 4 && xmlHttp.status == 200)
-                callback(xmlHttp.responseText);
+        if(member == '' || member == null)
+            message.reply('You noob, you need to tag someone!');
+        else {
+        https.get('https://insult.mattbas.org/api/insult', (resp) => {
+            let data = '';
+            resp.on('data', (chunk) => {
+                data += chunk;
+            });
+            
+            resp.on('end', () => {
+                message.channel.send(member + ' ' + data);
+            })
+        }).on('error', (err) => {
+            console.log('Error caught: ' + err.message);
+            });
         }
-       var response = xmlHttp.open("GET", "https://insult.mattbas.org/api/insult", true);
-       response.send();
-       message.channel.send(response);
     }
 }
 
