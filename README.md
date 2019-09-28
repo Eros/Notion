@@ -20,9 +20,16 @@ As well as the config template which is in the root directory of the bot:
 ```
 {
     "discord_token": "TOKEN HERE",
-    "rapid_api_token": "TOKEN HERE",
     "prefix": "&"
 }
 ```
 
 The bot runs of Insult Generator API from https://rapidapi.com/Lakerolmaker/api/insult-generator you will need to create an account and use your own token.
+
+## Updates
+
+28/09/2019:
+
+Removed the old API from the insult command, the API had died and was no longer working just throwing
+a html error. As of now it has been replaced with one that does not require a key from RapidAPI, and no
+longer requires unirest.
