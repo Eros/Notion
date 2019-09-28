@@ -7,10 +7,6 @@ Use this link to add it to your discord: https://discordapp.com/oauth2/authorize
 
 The bot is built in NodeJS, if you wish to edit or contribute you will need the following:
 
-unirest
-
-`npm install unirest`
-
 Discord.js
 
 `npm install discord.js`
