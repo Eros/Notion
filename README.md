@@ -29,3 +29,9 @@ The bot runs of Insult Generator API from https://rapidapi.com/Lakerolmaker/api/
 Removed the old API from the insult command, the API had died and was no longer working just throwing
 a html error. As of now it has been replaced with one that does not require a key from RapidAPI, and no
 longer requires unirest.
+
+08/11/2019:
+
+Added in the boomer command to send a boomer video. Fixed the help command. Fucked up the AWS 
+server and fixed it again, removed ForeverJS framework in the main file as it's running server
+side now.
