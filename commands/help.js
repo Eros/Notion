@@ -4,17 +4,40 @@ const Discord = require('discord.js');
 module.exports.run = (bot, message, args) => {
     if (message.content.startsWith(config.prefix)) {
 
-        const embed = new Discord.RichEmbed();
-        embed.setTitle('InsultBot commands')
-            .setAuthor('')
-            .setColor(0x00AE86)
-            .addField('» &help', 'Runs this command')
-            .addField('» &insult @name', 'Generates an insult the target user')
-            .addField('» &sys', 'Provides stats on the bot and AWS server')
-            .addField('» &cat', 'Just incase you piss someone off this will put a cat in chat')
-            .addField('» &boomer @name', 'tell someone they\'re a boomer!')
-            .setFooter('Developed by https://twitter.com/RapidTheNerd');
-        message.channel.send(embed);
+
+        message.channel.send({embed: {
+            color: 0x00AE86,
+            author: {
+                name: ' ',
+                icon_url: bot.user.avatarURL
+            },
+            title: 'Help',
+            description: 'Some information and commands list',
+            fields: [{
+                name: '» &help',
+                value: 'Runs this command'
+            },
+            {
+                name: '» &insult @name',
+                value: 'Generates an insult at the targetted user'
+            },
+            {
+                name: '» &boomer @name',
+                value: 'Let someone know they\'re a boomer!'
+            },
+            {
+                name: '» &sys',
+                value: 'Provides information on the bot and server it runs on'
+            },
+            {
+                name: '» &cat',
+                value: 'Provides a picture of a cat'
+            }],
+            footer: {
+                icon_url: bot.user.avatarURL,
+                text: 'Developed by https://twitter.com/RapidThenerd'
+            }
+        }});
     }
 }
 
