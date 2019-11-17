@@ -7,6 +7,8 @@ module.exports.run = (bot, message, args) => {
             return;
         } else {
             let script = args.join('');
+            if(script.content.contains('_'))
+                script.replace('_', ' ');
             message.reply(':alarm_clock: Running your script!').then((reply) => {
                 try {
                     let result = eval(script);

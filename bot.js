@@ -25,7 +25,6 @@ fs.readdir('./commands/', (err, files) => {
 });
 
 bot.on('message', message => {
-
     if (message.author.bot)
         return;
     if (message.channel.type === 'dm')
