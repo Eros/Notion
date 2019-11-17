@@ -5,6 +5,9 @@ module.exports.run = (bot, message, args) => {
         let first = message.mentions.members.first();
         let second = message.mentions.members.array()[1];
 
+        if(first == null || second == null)
+            message.reply('You need to tag people!');
+
         var req = unirest("GET", "https://love-calculator.p.rapidapi.com/getPercentage");
 
         req.query({'fname': first.displayName, 'sname': second.displayName});
