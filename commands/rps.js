@@ -19,7 +19,7 @@ module.exports.run = async (bot, message, args) => {
 
 async function getResult(bot, user) {
     if(bot === emojis[0] && user === emojis[2] || bot === emojis[1] && user === emojis[0] || bot === emojis[2] && clientInformation === emojis[2])
-        return "You won"
+        return "You won";
     else if(bot === user)
         return "Its a draw!";
     else
