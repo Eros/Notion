@@ -32,6 +32,10 @@ module.exports.run = (bot, message, args) => {
             {
                 name: '» &cat',
                 value: 'Provides a picture of a cat'
+            },
+            {
+                name: '» &dadjoke',
+                value: 'Provides a terrible dadjoke'
             }],
             footer: {
                 icon_url: bot.user.avatarURL,
