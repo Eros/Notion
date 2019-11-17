@@ -1,11 +1,21 @@
 const config = require('../config.json');
-
+const unirest = require('unirest');
 module.exports.run = (bot, message, args) => {
     if(message.content.startsWith(config.prefix)) {
-        var first = message.mentions.members.first();
-        var second = message.mentions.members.array()[1];
+        let first = message.mentions.members.first();
+        let second = message.mentions.members.array()[1];
 
+        var req = unirest("GET", "https://love-calculator.p.rapidapi.com/getPercentage");
 
+        req.query({'fname': first.displayName, 'sname': second.displayName});
+        req.headers({"x-rapidapi-host": "love-calculator.p.rapidapi.com",
+            "x-rapidapi-key": config.rapid_api_token});
+
+        req.end(function(res) {
+            if(res.error)
+                console.log('[!] Error caught: ' + res.error);
+            console.log(res.body)
+        })
     }
 };
 
