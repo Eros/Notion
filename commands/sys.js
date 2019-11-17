@@ -6,9 +6,12 @@ module.exports.run = (bot, message, args) => {
         const embed = new Discord.RichEmbed();
         embed.setColor(3447003);
         embed.setTitle('Bot & server statistics');
-        embed.addField('» Uptime \t\t » RAM usage', (process.uptime() + '').convertTime() + "\t\t" + `${((process.memoryUsage().heapUsed / 1024) / 1024).toFixed(2)} MB`);
-        embed.addField('» Websocket \t\t » Host', `${process.platform} (${process.arch}) \t\t AWS EC2 (Ubuntu`);
-        embed.addField('» Ping \t\t » Discord.js Version', `${bot.ping} \t\t ${require('discord.js').version}`);
+        embed.addField('» Uptime', `${(process.uptime() + '').convertTime()}`);
+        embed.addField('» RAM Usage', `${((process.memoryUsage().heapUsed / 1024) / 1024).toFixed(2)} MB`);
+        embed.addField('» Websocket', `${process.platform} ${process.arch}`);
+        embed.addField('» Host', 'AWS EC2 Ubuntu');
+        embed.addField('» Ping', `${(bot.ping).toFixed(4)}`);
+        embed.addField('» Discord JS Version', `${require('discord.js').version}`);
         embed.addField('» Server count', `${bot.guilds.size}`);
         message.channel.send(embed);
     }
