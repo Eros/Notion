@@ -9,17 +9,17 @@ bot.commands = new Discord.Collection();
 
 fs.readdir('./commands/', (err, files) => {
     if (err)
-        console.log('Error reading commands: \n' + err);
+        console.log('[X] Error reading commands: \n' + err);
 
     let js = files.filter(f => f.split('.').pop() === 'js');
     if (js.length <= 0) {
-        console.log('Unable to load commands');
+        console.log('[!] Unable to load commands');
         return;
     }
 
     js.forEach((f, i) => {
         let props = require(`./commands/${f}`);
-        console.log(`Loaded command: ${f}`)
+        console.log(`[+] Loaded command: ${f}`)
         bot.commands.set(props.help.name, props);
     });
 });
@@ -42,7 +42,7 @@ bot.on('message', message => {
 });
 
 bot.on('ready', async => {
-    console.log('\nInsultBot starting up...');
-    bot.user.setActivity('&insult @name', { type: 'PLAYING' });
-    console.log('\nBot has started!\n');
+    console.log('\n[!] InsultBot starting up...');
+    bot.user.setActivity('List of commands » &help', { type: 'PLAYING' });
+    console.log('\n[+] Bot has started!\n');
 });
