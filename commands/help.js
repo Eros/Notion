@@ -36,6 +36,10 @@ module.exports.run = (bot, message, args) => {
             {
                 name: '» &dadjoke',
                 value: 'Provides a terrible dadjoke'
+            },
+            {
+                name: '» &announcements',
+                value: 'View updates/announcements on the bot from the bot developer.'
             }],
             footer: {
                 icon_url: bot.user.avatarURL,
