@@ -14,7 +14,7 @@ module.exports.run = (bot, message, args) => {
             if(res.error) {
                 console.log('[!] Error caught: ' + res.error);
             }
-            console.log(res.body);
+            message.channel.send(res.body)
         })
     }
 };
