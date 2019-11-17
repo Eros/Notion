@@ -14,7 +14,7 @@ module.exports.run = (bot, message, args) => {
         req.end(function(res) {
             if(res.error)
                 console.log('[!] Error caught: ' + res.error);
-            console.log(res.body)
+            message.reply('For: ' + first.displayName + ' & ' + second.displayName + ' their % is ' + res.body['percentage'] + '... I think that they ' + res['result']);
         })
     }
 };
