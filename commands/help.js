@@ -18,6 +18,7 @@ module.exports.run = (bot, message, args) => {
         embed.addField('» &sys', 'Provides information on the bot and the server it\'s running on');
         embed.addField('» &announcements', 'Read the latest information from the bot developers');
         embed.addField('» &eval', 'Evaluate a script (Bot developer only)');
+        embed.addField('» &purge number', 'Bulk deletes messages, max 100 messages per use. Requires MANAGE_MESSAGES permission');
         embed.setFooter('Bot developer by https://twitter.com/RapidTheNerd');
         embed.setAuthor('Notion Developers');
         message.channel.send(embed);

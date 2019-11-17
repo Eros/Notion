@@ -1,7 +1,7 @@
 const config = require('../config.json');
 
 module.exports.run = (bot, message, args) => {
-    if(message.author.member.hasPermission('MANAGE_MESSAGES')) {
+    if(message.member.hasPermission('MANAGE_MESSAGES', false, true)) {
         if(!args[0])
             message.reply('You need to specify an amount! (100 max)');
         if(args[0] > 100)
