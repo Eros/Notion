@@ -16,11 +16,10 @@ As well as the config template which is in the root directory of the bot:
 ```
 {
     "discord_token": "TOKEN HERE",
+    "rapid_api_token": "TOKEN HERE",
     "prefix": "&"
 }
 ```
-
-The bot runs of Insult Generator API from https://rapidapi.com/Lakerolmaker/api/insult-generator you will need to create an account and use your own token.
 
 ## Updates
 
@@ -35,3 +34,8 @@ longer requires unirest.
 Added in the boomer command to send a boomer video. Fixed the help command. Fucked up the AWS 
 server and fixed it again, removed ForeverJS framework in the main file as it's running server
 side now.
+
+17/11/2019:
+
+Added the dadjoke API to make some terrible dad jokes. Currently has an API limit of 50 per day
+needs to be reworked, not paying for that API.
