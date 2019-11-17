@@ -7,12 +7,12 @@ module.exports.run = (bot, message, args) => {
         const embed = new Discord.RichEmbed();
         embed.setColor(0x00AE86);
         embed.setTitle('List of commands');
-        embed.addField('** Fun commands **', '▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬');
+        embed.addField('▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬', '** Fun commands **');
         embed.addField('» &insult @name', 'Generate insults at the targeted user');
         embed.addField('» &boomer @name', 'Let someone know they\'re a boomer!');
         embed.addField('» &cat', 'Provides a picture of a cat');
         embed.addField('» &dadjoke', 'Tells a dad joke');
-        embed.addField('** System/admin commands **','▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬');
+        embed.addField('▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬',' ** System & Admin commands **');
         embed.addField('» &sys', 'Provides information on the bot and the server it\'s running on');
         embed.addField('» &announcements', 'Read the latest information from the bot developers');
         embed.addField('» &eval', 'Evaluate a script (Bot developer only)');
