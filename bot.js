@@ -43,6 +43,6 @@ bot.on('message', message => {
 
 bot.on('ready', async => {
     console.log('\n[!] InsultBot starting up...');
-    bot.user.setActivity('List of commands » &help', { type: 'PLAYING' });
+    bot.user.setActivity('» &help', { type: 'PLAYING' });
     console.log('\n[+] Bot has started!\n');
 });
