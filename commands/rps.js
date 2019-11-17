@@ -11,7 +11,10 @@ module.exports.run = async (bot, message, args) => {
     //gets the reaction from the sender then let the bot make a random choice
     const reaction = await promptMessage(m, message.author, 30, emojis);
     const botChoice = emojis[Math.floor(Math.random() * emojis.length)];
-
+    const result = await getResult(reaction, botChoice);
+    await m.clearReactions();
+    embed.addField(result, `${reaction} vs ${botChoice}`);
+    m.edit(embed);
 };
 
 async function getResult(bot, user) {
