@@ -12,9 +12,9 @@ module.exports.run = (bot, message, args) => {
                     message.channel.send(`Cleared ${args[0]} messages!`);
 
                 });
-            } else {
-                message.reply('You do not have permission to run this command!');
             }
+                message.reply('You do not have permission to run this command!');
+            
         }
     }
 };
