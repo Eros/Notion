@@ -33,6 +33,23 @@ you wont need to do much else unless you want to track the amount of uses of eac
 
 To start the bot simply run `node bot.js` in the parent directory.
 
+# Disabled Commands
+
+Some commands are currently disabled due to errors that I haven't gotten round to fixing yet. As of now
+there are currently two commands that are disabled.
+
+#### rps
+
+This provides a simple rock paper scissors game.
+
+Current issue > currently it uses emojis for the game input, all of the emojis currently work except the scissors one, this ends up breaking the bot and causes it to crash.
+
+#### chat
+
+This command hooks into the robomatic api as a chat api
+
+Current issue > no matter what the input is output comes back as empty, this happens no matter where you test the api and is something on the api developers side.
+
 # Contributing
 
 Contributions are welcome but please follow some guidelines:
