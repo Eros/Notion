@@ -16,6 +16,7 @@ module.exports.run = (bot, message, args) => {
         embed.addField('» &rps', 'Play rock, paper, scissors with the bot [Temporarily Disabled]');
         embed.addField('» &shout message', 'Make your message massive [Temporarily Disabled]');
         embed.addField('» &8ball question', 'Ask the (not so) magic 8ball a question!');
+        embed.addField('» &yomamma @name', 'Insult someones mother');
         embed.addField('▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬',' ** System & Admin commands **');
         embed.addField('» &sys', 'Provides information on the bot and the server it\'s running on');
         embed.addField('» &announcements', 'Read the latest information from the bot developers');

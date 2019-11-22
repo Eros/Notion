@@ -20,6 +20,7 @@ fs.readdir('./commands/', (err, files) => {
     js.forEach((f, i) => {
         let props = require(`./commands/${f}`);
         console.log(`[+] Loaded command: ${f}`)
+        console.log(`${i}`);
         bot.commands.set(props.help.name, props);
     });
 });

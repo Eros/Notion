@@ -11,6 +11,8 @@ If you want to contribute to Notion then you'll need the following
 1) NodeJS (https://nodejs.org/en/)
 2) Discord.js `npm install discord.js`
 3) unirest `npm install unirest`
+4) urban dictionary `npm install urban-dictionary`
+5) yoMamma `npm install yo-mamma`
 
 You'll also have to create a config.json file in the parent directory
 this looks like
