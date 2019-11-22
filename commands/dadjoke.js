@@ -16,8 +16,8 @@ module.exports.run = (bot, message, args) => {
             message.channel.send(res.body['setup'] + '...' + res.body['punchline']);
         })
     }
-}
+};
 
 module.exports.help = {
     name: 'dadjoke'
-}
+};
