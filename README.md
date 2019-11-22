@@ -21,6 +21,7 @@ this looks like
 {
 "discord_token": "DISCORD TOKEN HERE",
 "rapid_api_token": "RAPID API TOKEN HERE",
+"robomatic_auth": "ROBOMATIC AUTH HERE", //GET THIS FROM THE RAPID API PAGE 
 "prefix": "&"
 }
 ```
