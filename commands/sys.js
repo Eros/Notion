@@ -1,56 +1,25 @@
 const config = require('../config.json');
+const Discord = require('discord.js');
 
 module.exports.run = (bot, message, args) => {
     if (message.content.startsWith(config.prefix)) {
-        message.channel.send({
-            embed: {
-                color: 3447003,
-                author: {
-                    name: ' ',
-                    icon_url: bot.user.avatarURL
-                },
-                title: 'System stats',
-                description: 'Statistics of the Bot and the AWS server',
-                fields: [{
-                    name: 'Uptime',
-                    value: (process.uptime() + '').convertTime()
-                },
-                {
-                    name: 'RAM usage ',
-                    value: `${((process.memoryUsage().heapUsed / 1024) / 1024).toFixed(2)} MB`
-                },
-                {
-                    name: 'Websocket',
-                    value: `${process.platform} (${process.arch}) `
-                },
-                {
-                    name: 'Host',
-                    value: `AWS Ohio Server (Ubuntu)`
-                },
-                {
-                    name: 'Ping',
-                    value: `${bot.ping} `
-                },
-                {
-                    name: 'DiscordJS version',
-                    value: `${require('discord.js').version} `
-                },
-                {
-                    name: 'Server count: ',
-                    value: `${bot.guilds.size} `
-                }],
-                footer: {
-                    icon_url: bot.user.avatarURL,
-                    text: 'Developed by https://twitter.com/RapidTheNerd'
-                }
-            }
-        });
+        const embed = new Discord.RichEmbed();
+        embed.setColor(3447003);
+        embed.setTitle('Bot & server statistics');
+        embed.addField('» Uptime', `${(process.uptime() + '').convertTime()}`);
+        embed.addField('» RAM Usage', `${((process.memoryUsage().heapUsed / 1024) / 1024).toFixed(2)} MB`);
+        embed.addField('» Websocket', `${process.platform} ${process.arch}`);
+        embed.addField('» Host', 'AWS EC2 Ubuntu');
+        embed.addField('» Ping', `${(bot.ping).toFixed(4)}`);
+        embed.addField('» Discord JS Version', `${require('discord.js').version}`);
+        embed.addField('» Server count', `${bot.guilds.size}`);
+        message.channel.send(embed);
     }
-}
+};
 
 module.exports.help = {
     name: 'sys'
-}
+};
 
 String.prototype.convertTime = function () {
     let sec = parseInt(this, 10);

@@ -5,14 +5,16 @@
   "main": "bot.js",
   "dependencies": {
     "balanced-match": "^1.0.0",
+    "cryptiles": ">=4.1.2",
+    "hoek": ">=6.1.3",
+    "mime": ">=1.4.1",
     "mongo": "^0.1.0",
     "mongodb": "^3.1.13",
     "request": "^2.88.0",
     "unirest": "^0.5.1",
+    "urban-dictionary": "^2.2.1",
     "xmlhttprequest": "^1.8.0",
-    "cryptiles": ">=4.1.2",
-    "mime": ">=1.4.1",
-    "hoek": ">=6.1.3"
+    "yo-mamma": "^1.3.0"
   },
   "devDependencies": {
     "discord.js": "^11.5.1",

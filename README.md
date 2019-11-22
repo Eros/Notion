@@ -1,41 +1,71 @@
-# InsultBot
+![Notion Image](notion.png)
 
-In simple terms it's a bot that is used to insult your friends and people you don't generally like.
-Use this link to add it to your discord: https://discordapp.com/oauth2/authorize?&client_id=527624995317481482&scope=bot&permissions=0
+Formerly known as InsultBot Notion is a bot designed to have fun
+around your discord server. It does not provide any form of moderation apart
+from the ability to purge messages.
 
 # Developers
 
-The bot is built in NodeJS, if you wish to edit or contribute you will need the following:
+If you want to contribute to Notion then you'll need the following
 
-Discord.js
+1) NodeJS (https://nodejs.org/en/)
+2) Discord.js `npm install discord.js`
+3) unirest `npm install unirest`
+4) urban dictionary `npm install urban-dictionary`
+5) yoMamma `npm install yo-mamma`
 
-`npm install discord.js`
+You'll also have to create a config.json file in the parent directory
+this looks like
 
-As well as the config template which is in the root directory of the bot:
-
-```
+```json
 {
-    "discord_token": "TOKEN HERE",
-    "rapid_api_token": "TOKEN HERE",
-    "prefix": "&"
+"discord_token": "DISCORD TOKEN HERE",
+"rapid_api_token": "RAPID API TOKEN HERE",
+"robomatic_auth": "ROBOMATIC AUTH HERE", //GET THIS FROM THE RAPID API PAGE 
+"prefix": "&"
 }
 ```
+To learn about discord development read through this:
+https://discordapp.com/developers/docs/intro
 
-## Updates
+A few of the APIs are hosted on RapidAPI which requires one key only
+to manage you'll need to create an account and generate your API key at https://rapidapi.com
+you wont need to do much else unless you want to track the amount of uses of each API.
 
-28/09/2019:
+To start the bot simply run `node bot.js` in the parent directory.
 
-Removed the old API from the insult command, the API had died and was no longer working just throwing
-a html error. As of now it has been replaced with one that does not require a key from RapidAPI, and no
-longer requires unirest.
+# Disabled Commands
 
-08/11/2019:
+Some commands are currently disabled due to errors that I haven't gotten round to fixing yet. As of now
+there are currently two commands that are disabled.
 
-Added in the boomer command to send a boomer video. Fixed the help command. Fucked up the AWS 
-server and fixed it again, removed ForeverJS framework in the main file as it's running server
-side now.
+#### rps
 
-17/11/2019:
+This provides a simple rock paper scissors game.
 
-Added the dadjoke API to make some terrible dad jokes. Currently has an API limit of 50 per day
-needs to be reworked, not paying for that API.
+Current issue > currently it uses emojis for the game input, all of the emojis currently work except the scissors one, this ends up breaking the bot and causes it to crash.
+
+#### chat
+
+This command hooks into the robomatic api as a chat api
+
+Current issue > no matter what the input is output comes back as empty, this happens no matter where you test the api and is something on the api developers side.
+
+# Contributing
+
+Contributions are welcome but please follow some guidelines:
+
+1) Your contribution MUST be in a different branch, I will not review it if it's in the master branch
+2) Keep it in JavaScript. I don't mind external APIs being used but don't use other languages
+3) Follow discords developer terms of service, if anything breaks this your contribution will not be included.
+4) I'm busy a lot - I'll review it when I get to it so please don't beg me
+5) Submit your contribution via pull request, I'll review it and merge if it's good
+6) Bugs should be submitted under the issues tab, alternatively they can be tweeted to me at https://twitter.com/RapidTheNerd
+# Todo list and known bugs
+
+### Bugs
+
+1) Rock paper scissors command currently throws an error whenever the user selects scissors, any other emoji works fine
+2) Commands can only be ran if the start of the command has a check whether or not the content starts with config.prefix
+   
+   2.1. This is also checked in the bot.js file under the command manager
