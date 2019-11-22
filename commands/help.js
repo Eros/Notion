@@ -13,7 +13,8 @@ module.exports.run = (bot, message, args) => {
         embed.addField('» &cat', 'Provides a picture of a cat');
         embed.addField('» &dadjoke', 'Tells a dad joke');
         embed.addField('» &lovecalc @name @name', 'Why not let a bot determine how good your relationship is?');
-        embed.addField('» &rps', 'Play rock, paper, scissors with the bot');
+        embed.addField('» &rps', 'Play rock, paper, scissors with the bot [Temporarily Disabled]');
+        embed.addField('» &shout message', 'Make your message massive [Temporarily Disabled]');
         embed.addField('» &8ball question', 'Ask the (not so) magic 8ball a question!');
         embed.addField('▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬',' ** System & Admin commands **');
         embed.addField('» &sys', 'Provides information on the bot and the server it\'s running on');
