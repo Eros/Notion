@@ -10,6 +10,7 @@
     "mime": ">=1.4.1",
     "mongo": "^0.1.0",
     "mongodb": "^3.1.13",
+    "random-puppy": "^1.1.0",
     "request": "^2.88.0",
     "unirest": "^0.5.1",
     "urban-dictionary": "^2.2.1",
