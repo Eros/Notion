@@ -7,7 +7,7 @@ module.exports.run = (bot, message, args) => {
     if(message.content.startsWith(config.prefix)) {
         const user = args[0];
         const search = getUser(user);
-        if(!search.username)
+        if(!search.user)
             return message.reply('Oops! I could not find that user.');
         
         const life = search.stats.lifetime;
@@ -43,6 +43,12 @@ module.exports.run = (bot, message, args) => {
         
         message.channel.send(embed);
     }
+} 
+
+function sleep(ms) {
+    return new Promise(resolve => {
+        setTimeout(resolve, ms);
+    });
 }
 
 async function getUser(args) {

@@ -7,11 +7,12 @@ module.exports.run = (bot, message, args) => {
         const subs = ['dankmeme', 'meme', 'me_irl'];
         const result = subs[Math.floor(Math.random() * subs.length)];
         const image = randomPuppy(result);
-        const embed = new Discord.RichEmbed();
-        embed.setColor(6938222);
-        embed.setImage(image);
-        embed.setTitle(`From r/${result}`);
-        embed.setURL(`https://reddit.com/r/${result}`);
+        const embed = new Discord.RichEmbed()
+            .setColor(6938222)
+            .setImage(image)
+            .setTitle(`From r/${result}`)
+            .setURL(`https://reddit.com/r/${result}`);
+        
         message.channel.send(embed);
     }
 }
