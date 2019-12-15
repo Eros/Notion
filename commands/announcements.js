@@ -11,11 +11,12 @@ module.exports.run = (bot, message, args) => {
             description: 'Announcements and information from the bot developer',
             fields: [{
                 name: 'Changing bot name [17th November 2019]',
-                value: 'In the next couple of weeks the bot name will be changed from InsultBot to something more general (undetermined yet)'
-                        + 'Because the bot originally started out as purely generating insults it has now expanded to more of a general purpose' 
-                        + 'and just shitting around with some more fun components. All of the current commands will be staying, as well as a few' 
-                        + ' more will be added. The bot will not be turned into a moderation bot the general idea is to allow people to mess around with' 
-                        + ' it and not to be taken seriously.'
+                value:  '⛏ Bot has received several new commands (run &help)\n' +
+                        '⛏ Several bugs have been fixed\n' +
+                        '⛏ Implementations have been added to prevent crashing\n' +
+                        '⛏ Urban command now returns the URL if the text is > 1024 characters\n' +
+                        '⛏ Bot has now been rebranded to Notion\n' + 
+                        '⛏ Source code is available at https://github.com/Eros/Notion'
             }],
             footer: {
                 icon_url: bot.user.avatarURL,
