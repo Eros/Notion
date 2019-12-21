@@ -39,12 +39,6 @@ To start the bot simply run `node bot.js` in the parent directory.
 Some commands are currently disabled due to errors that I haven't gotten round to fixing yet. As of now
 there are currently two commands that are disabled.
 
-#### rps
-
-This provides a simple rock paper scissors game.
-
-Current issue > currently it uses emojis for the game input, all of the emojis currently work except the scissors one, this ends up breaking the bot and causes it to crash.
-
 #### chat
 
 This command hooks into the robomatic api as a chat api
@@ -64,8 +58,6 @@ Contributions are welcome but please follow some guidelines:
 # Todo list and known bugs
 
 ### Bugs
-
-1) Rock paper scissors command currently throws an error whenever the user selects scissors, any other emoji works fine
-2) Commands can only be ran if the start of the command has a check whether or not the content starts with config.prefix
+1) Commands can only be ran if the start of the command has a check whether or not the content starts with config.prefix
    
-   2.1. This is also checked in the bot.js file under the command manager
+   1.1) This is also checked in the bot.js file under the command manager
