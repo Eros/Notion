@@ -19,11 +19,11 @@ module.exports.run = async (bot, message, args) => {
 
 async function getResult(bot, user) {
     if((user === '🗻' && bot === '✂') || (user === '📰' && bot === '🗻') || (user === '✂' && bot === '📰'))
-        return "You won";
+        return "You lost";
     else if(bot === user)
         return "Its a draw!";
     else
-        return "You lost!"
+        return "You won!"
 }
 
 async function promptMessage(message, author, time, reactions) {

@@ -7,6 +7,8 @@ module.exports.run = (bot, message, args) => {
 
         if(member == '' || member == null)
             message.reply('You noob, you need to tag someone!');
+        else if(member.id === '226423378817449985')
+            message.reply('You cannot insult my master!');
         else {
         https.get('https://insult.mattbas.org/api/insult', (resp) => {
             let data = '';

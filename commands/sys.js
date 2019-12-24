@@ -14,7 +14,7 @@ module.exports.run = (bot, message, args) => {
         embed.addField('» Discord JS Version', `${require('discord.js').version}`);
         embed.addField('» Server count', `${bot.guilds.size}`);
         embed.addField('» Bot version', `${config.bot_version}`);
-        embed.addField('» Last server update: ', '7th Dec 2019');
+        embed.addField('» Last server update: ', '24th Dec 2019');
         message.channel.send(embed);
     }
 };
